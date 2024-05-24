@@ -9,18 +9,17 @@ public class DBConnection {
 	static Connection con;
 	public static Connection createDBConnection()
 	{
-		//load Driver 
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//get connection 
-			String url="jdbc:mysql://localhost:3306/studlib";
-			String username="librarystudent";
-			String password="librarystudent";
+			String url="jdbc:mysql://localhost:3306/employeemanagement";
+			String username="employee";
+			String password="employee";
 			con = DriverManager.getConnection(url,username,password);
+			System.out.println(con.getCatalog());
 		} 
-		catch (ClassNotFoundException | SQLException e) {
-			
+		catch (ClassNotFoundException | SQLException e) 
+		{	
 			e.printStackTrace();
 		}
 		return con;
